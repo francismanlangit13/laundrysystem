@@ -54,7 +54,7 @@
         <!-- Include Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     </head>
-    <body class="bg-primary">
+    <body class="bg-primary" style="background-image: url('assets/files/system/background.jpg'); background-repeat: no-repeat; background-size: cover;">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -66,7 +66,7 @@
                                         <h5 class="text-center my-4">Alma Laundry Management System</h5>
                                         <h4 class="text-center my-4">Login</h4>
                                     </div>
-                                    <div style="text-align: center;">
+                                    <div class="d-none" style="text-align: center;">
                                         <img class="zoom img-fluid img-bordered-sm" src="<?php echo base_url ?>assets/files/system/system_logo.jpg" alt="image" style="max-width: 160px; object-fit: cover;">
                                     </div>
                                     <div class="card-body">
