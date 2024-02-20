@@ -20,8 +20,8 @@
         include ("../../assets/vendor/PHPMailer/class.smtp.php");
     }
 
-    // Add user account
-    if(isset($_POST["add_user"])) {
+    // Add customer account
+    if(isset($_POST["add_customer"])) {
         $fname = $_POST['fname'];
         $mname = $_POST['mname'];
         $lname = $_POST['lname'];
@@ -30,7 +30,7 @@
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $password = $_POST['password'];
-        $type = $_POST['role'];
+        $type = 'Customer';
         $address = $_POST['address'];
         $status = 'Active';
 
@@ -41,7 +41,7 @@
 
             $fullname = $fname .' '. $mname .' '. $lname .' '. $suffix;
             // PHP Compose Mail
-            $name = 'Rental Properties Management System';
+            $name = 'Alma Laundry Management System';
             // $subject = htmlentities('Email and Password Credentials - ' . $name);
             // $message = nl2br("Dear $fullname \r\n \r\n Welcome to ".$name."! \r\n \r\n This is your account information \r\n Email: $email \r\n Password: $new_password \r\n \r\n Please change your password immediately. \r\n \r\n Thanks, \r\n ".$name);
             // //PHP Mailer Gmail
@@ -60,20 +60,20 @@
             // $mail->Body = $message;
             // $mail->send();
 
-            $_SESSION['status'] = "User added successfully";
+            $_SESSION['status'] = "Customer added successfully";
             $_SESSION['status_code'] = "success";
-            header("Location: " . base_url . "admin/home/user");
+            header("Location: " . base_url . "admin/home/customer");
             exit(0);
         } else {
-            $_SESSION['status'] = "User was not added";
+            $_SESSION['status'] = "Customer was not added";
             $_SESSION['status_code'] = "error";
-            header("Location: " . base_url . "admin/home/user");
+            header("Location: " . base_url . "admin/home/customer");
             exit(0);
         }
     }
 
-    // Edit user account
-    if(isset($_POST["edit_user"])) {
+    // Edit customer account
+    if(isset($_POST["edit_customer"])) {
         $user_id = $_POST["user_id"];
         $fname = $_POST['fname'];
         $mname = $_POST['mname'];
@@ -82,41 +82,40 @@
         $gender = $_POST['gender'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
-        $type = $_POST['role'];
         $status = $_POST['status'];
         $address = $_POST['address'];
 
-        $query = "UPDATE `user` SET `fname`='$fname',`mname`='$mname',`lname`='$lname',`suffix`='$suffix',`gender`='$gender',`address`='$address',`email`='$email',`phone`='$phone',`user_status`='$status',`user_type`='$type' WHERE `user_id`='$user_id'";
+        $query = "UPDATE `user` SET `fname`='$fname',`mname`='$mname',`lname`='$lname',`suffix`='$suffix',`gender`='$gender',`address`='$address',`email`='$email',`phone`='$phone',`user_status`='$status' WHERE `user_id`='$user_id'";
         $query_run = mysqli_query($con, $query);
 
         if($query_run) {
-            $_SESSION['status'] = "User updated successfully";
+            $_SESSION['status'] = "Customer updated successfully";
             $_SESSION['status_code'] = "success";
-            header("Location: " . base_url . "admin/home/user");
+            header("Location: " . base_url . "admin/home/customer");
             exit(0);
         } else {
-            $_SESSION['status'] = "User was not update";
+            $_SESSION['status'] = "Customer was not update";
             $_SESSION['status_code'] = "error";
-            header("Location: " . base_url . "admin/home/user");
+            header("Location: " . base_url . "admin/home/customer");
             exit(0);
         }
     }
 
-    // Delete user
-    if(isset($_POST['delete_user'])) {
+    // Delete customer
+    if(isset($_POST['delete_customer'])) {
         $user_id= $_POST['user_id'];
         $query = "UPDATE `user` SET `user_status` = 'Archive' WHERE user_id = $user_id ";
         $query_run = mysqli_query($con, $query);
 
         if($query_run) {
-            $_SESSION['status'] = "User deleted successfully";
+            $_SESSION['status'] = "Customer deleted successfully";
             $_SESSION['status_code'] = "success";
-            header("Location: " . base_url . "admin/home/user");
+            header("Location: " . base_url . "admin/home/customer");
             exit(0);
         } else {
-            $_SESSION['status'] = "User was not delete";
+            $_SESSION['status'] = "Customer was not delete";
             $_SESSION['status_code'] = "error";
-            header("Location: " . base_url . "admin/home/user");
+            header("Location: " . base_url . "admin/home/customer");
             exit(0);
         } 
     }

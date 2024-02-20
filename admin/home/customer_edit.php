@@ -11,33 +11,33 @@
 </style>
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Edit User</h1>
+        <h1 class="mt-4">Edit Customer</h1>
         <ol class="breadcrumb mb-4 mt-3">
             <li class="breadcrumb-item active"><a href="../home" class="text-decoration-none">Dashboard</a></li>
-            <li class="breadcrumb-item active"><a href="./user" class="text-decoration-none">Users</a></li>
-            <li class="breadcrumb-item">Edit User</li>
+            <li class="breadcrumb-item active"><a href="./user" class="text-decoration-none">Customers</a></li>
+            <li class="breadcrumb-item">Edit Customer</li>
         </ol>
         <?php
             if(isset($_GET['id'])) {
                 $id = $_GET['id'];
-                $sql = "SELECT * FROM `user` WHERE `user_id` = '$id' AND `user_type` != 'Customer' AND `user_status` != 'Archive'";
+                $sql = "SELECT * FROM `user` WHERE `user_id` = '$id' AND `user_type` = 'Customer' AND `user_status` != 'Archive'";
                 $sql_run = mysqli_query($con, $sql);
 
                 if(mysqli_num_rows($sql_run) > 0) {
                     foreach($sql_run as $row){
         ?>
-        <form id="myForm" action="user_code.php" method="post" autocomplete="off" enctype="multipart/form-data">
+        <form id="myForm" action="customer_code.php" method="post" autocomplete="off" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>User form
+                            <h4>Customer form
                                 <div class="float-end btn-disabled">
                                     <button type="submit" class="btn btn-success" id="submit-btn" onclick="return validateForm()"><i class="fas fa-save"></i> Save</button>
                                     <input type="hidden" name="user_id" value="<?=$row['user_id']?>">
                                 </div>
                                 <div class="float-end btn-disabled mr-2">
-                                    <a class="btn btn-primary" href="./user"><i class="fas fa-arrow-left"></i> Back</a>
+                                    <a class="btn btn-primary" href="./customer"><i class="fas fa-arrow-left"></i> Back</a>
                                 </div>
                             </h4>
                         </div>
@@ -106,19 +106,6 @@
 
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
-                                        <label for="role" class="required">Role</label>
-                                        <select class="form-control" name="role" id="role" required>
-                                            <option value="" selected>Select Role</option>
-                                            <option value="Admin" <?= isset($row['user_type']) && $row['user_type'] == 'Admin' ? 'selected' : '' ?>>Admin</option>
-                                            <option value="Staff" <?= isset($row['user_type']) && $row['user_type'] == 'Staff' ? 'selected' : '' ?>>Staff</option>
-                                            <option value="Renter" <?= isset($row['user_type']) && $row['user_type'] == 'Renter' ? 'selected' : '' ?>>Rentee</option>
-                                        </select>
-                                        <div id="role-error"></div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                    <div class="form-group">
                                         <label for="status" class="required">Status</label>
                                         <select class="form-control" name="status" id="status" required>
                                             <option value="" selected>Select Status</option>
@@ -129,7 +116,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-9 mb-3">
+                                <div class="col-md-12 mb-3">
                                     <label for="address" class="required">Address</label>
                                     <textarea type="text" class="form-control" placeholder="Enter Address" rows="3" name="address" id="address" autocomplete="off" required><?=$row['address']?></textarea>
                                     <div id="address-error"></div>
@@ -154,7 +141,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                            <button type="submit" name="edit_user" id="editButton" class="btn btn-success">Yes</button>
+                            <button type="submit" name="edit_customer" id="editButton" class="btn btn-success">Yes</button>
                         </div>
                     </div>
                 </div>
@@ -165,7 +152,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>User info</h4>
+                            <h4>Customer info</h4>
                         </div>
                         <div class="card-body">
                             <h4>No records found.</h4>
