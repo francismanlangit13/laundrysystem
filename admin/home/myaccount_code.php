@@ -22,7 +22,6 @@
         $lname = $_POST['lname'];
         $suffix = $_POST['suffix'];
         $gender = $_POST['gender'];
-        $civil_status = $_POST['civil_status'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
 
@@ -122,7 +121,7 @@
             }
         }
 
-        $query = "UPDATE `user` SET `fname`='$fname', `mname`='$mname', `lname`='$lname', `suffix`= '$suffix', `gender`='$gender', `civil_status`='$civil_status', `email`='$email', `phone`='$phone' WHERE `user_id`='$user_id'";
+        $query = "UPDATE `user` SET `fname`='$fname', `mname`='$mname', `lname`='$lname', `suffix`= '$suffix', `gender`='$gender', `email`='$email', `phone`='$phone' WHERE `user_id`='$user_id'";
         $query_run = mysqli_query($con, $query);
         if ($query_run) {
             $_SESSION['status'] = "Account updated successfully";

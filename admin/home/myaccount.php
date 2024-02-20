@@ -73,18 +73,6 @@
                                 </div>
 
                                 <div class="col-md-3 mb-3">
-                                    <label for="civil_status" class="required">Civil Status</label>
-                                    <select class="form-control" name="civil_status" id="civil_status" <?php if($user['type'] == 'Renter'){ echo "required";} ?>>
-                                        <option value="" selected>Select Civil Status</option>
-                                        <option value="Single" <?= isset($user['civil_status']) && $user['civil_status'] == 'Single' ? 'selected' : '' ?>>Single</option>
-                                        <option value="Married" <?= isset($user['civil_status']) && $user['civil_status'] == 'Married' ? 'selected' : '' ?>>Married</option>
-                                        <option value="Widowed" <?= isset($user['civil_status']) && $user['civil_status'] == 'Widowed' ? 'selected' : '' ?>>Widowed</option>
-                                        <option value="Separated" <?= isset($user['civil_status']) && $user['civil_status'] == 'Separated' ? 'selected' : '' ?>>Separated</option>
-                                    </select>
-                                    <div id="civil_status-error"></div>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
                                     <label for="email" class="required">Email</label>
                                     <input type="email" class="form-control" placeholder="Enter Email" name="email" id="email" value="<?=$user['email']?>" required>
                                     <div id="email-error"></div>
@@ -94,6 +82,12 @@
                                     <label for="phone" class="required">Phone Number</label>
                                     <input type="text" class="form-control" placeholder="Enter Phone" name="phone" maxlength="11" id="phone" value="<?=$user['phone']?>" required>
                                     <div id="phone-error"></div>
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label for="type">User Type</label>
+                                    <input type="text" class="form-control-plaintext" id="type" value="<?=$user['user_type']?>">
+                                    <div id="type-error"></div>
                                 </div>
 
                                 <div class="col-md-12 mb-3">
