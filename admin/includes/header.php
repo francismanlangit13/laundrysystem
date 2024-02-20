@@ -23,7 +23,7 @@
         <!-- GlightBox -->
         <link href="<?php echo base_url ?>assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     </head>
-    <body class="sb-nav-fixed" style="background-image: url('../../assets/files/system/background.jpg'); background-repeat: no-repeat; background-size: cover;">
+    <body class="sb-nav-fixed" style="background-image: url('../../assets/files/system/background.jpg'); background-size: cover;">
         <?php
             include('topbar.php');
             include('sidebar.php');
