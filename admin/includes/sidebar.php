@@ -23,6 +23,10 @@
                             <a class="nav-link text-dark <?php if (strpos($_SERVER['PHP_SELF'], 'home/user.php') !== false || strpos($_SERVER['PHP_SELF'], 'home/user_add.php') !== false || strpos($_SERVER['PHP_SELF'], 'home/user_edit.php') !== false || strpos($_SERVER['PHP_SELF'], 'home/user_view.php') !== false)  { echo 'active'; } ?>" href="user">Users</a>
                         </nav>
                     </div>
+                    <a class="nav-link  text-dark <?php if (strpos($_SERVER['PHP_SELF'], 'home/inventory.php') !== false)  { echo 'active'; } ?>" href="inventory">
+                        <div class="sb-nav-link-icon text-dark"><i class="fas fa-archive"></i></div>
+                        Inventory Management
+                    </a>
                 </div>
             </div>
         </nav>
