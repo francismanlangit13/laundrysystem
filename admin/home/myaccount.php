@@ -244,7 +244,7 @@
 </script>
 
 <!-- Password validation -->
-<script>
+<!-- <script>
     $(document).ready(function() {
 
         // debounce functions for each input field
@@ -335,7 +335,7 @@
             checkIfAllFieldsValid();
         }
     });
-</script>
+</script> -->
 
 <script type="text/javascript">
     function togglePassword(inputId) {
@@ -386,7 +386,7 @@
 </script>
 
 <!-- Form Validations -->
-<script>
+<!-- <script>
     $(document).ready(function() {
 
         // debounce functions for each input field
@@ -394,7 +394,6 @@
         var debouncedCheckLname = _.debounce(checkLname, 500);
         var debouncedCheckSuffix = _.debounce(checkSuffix, 500);
         var debouncedCheckGender = _.debounce(checkGender, 500);
-        var debouncedCheckCivilstatus = _.debounce(checkCivilstatus, 500);
         var debouncedCheckEmail = _.debounce(checkEmail, 500);
         var debouncedCheckPhone = _.debounce(checkPhone, 500);
         var debouncedCheckAddress = _.debounce(checkAddress, 500);
@@ -404,7 +403,6 @@
         $('#lname').on('input', debouncedCheckLname);
         $('#suffix').on('change', debouncedCheckSuffix);
         $('#gender').on('change', debouncedCheckGender);
-        $('#civil_status').on('input', debouncedCheckCivilstatus);
         $('#email').on('input', debouncedCheckEmail); 
         $('#phone').on('input', debouncedCheckPhone);
         $('#address').on('input', debouncedCheckAddress);
@@ -413,7 +411,6 @@
         $('#lname').on('blur', debouncedCheckLname);
         $('#suffix').on('blur', debouncedCheckSuffix);
         $('#gender').on('blur', debouncedCheckGender);
-        $('#civil_status').on('blur', debouncedCheckCivilstatus);
         $('#email').on('blur', debouncedCheckEmail);
         $('#phone').on('blur', debouncedCheckPhone);
         $('#address').on('blur', debouncedCheckAddress);
@@ -424,8 +421,6 @@
                  $('#lname-error').is(':empty') &&
                  $('#suffix-error').is(':empty') &&
                  $('#gender-error').is(':empty') &&
-                 $('#civil_status-error').is(':empty') &&
-                 $('#email-error').is(':empty') &&
                  $('#email-error').is(':empty') &&
                  $('#phone-error').is(':empty') &&
                  $('#address-error').is(':empty')
@@ -506,24 +501,6 @@
             
             $('#gender-error').empty();
             $('#gender').removeClass('is-invalid');
-            checkIfAllFieldsValid();
-        }
-        
-        function checkCivilstatus() {
-            var civil_status = $('#civil_status').val()
-            
-            // show error if civilstatus is empty
-            if (!civil_status || civil_status.trim() === '') {
-                $('#civil_status-error').text('Please select civil status').css('color', 'red');
-                $('#civil_status').addClass('is-invalid');
-                checkIfAllFieldsValid();
-                return;
-            }
-            
-            // Perform additional validation for civilstatus if needed
-            
-            $('#civil_status-error').empty();
-            $('#civil_status').removeClass('is-invalid');
             checkIfAllFieldsValid();
         }
 
@@ -647,5 +624,5 @@
             checkIfAllFieldsValid();
         }
     });
-</script>
+</script> -->
 <?php include ('../includes/bottom.php'); ?>
