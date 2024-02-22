@@ -21,9 +21,9 @@
 
     // Send notification
     if(isset($_POST["send_notification"])){
-        $renter = $_POST['renter'];
+        $customer_id = $_POST['customer'];
         $body = $_POST['body'];
-        $user_qry = $con->query("SELECT * FROM user WHERE user_id = $renter ");
+        $user_qry = $con->query("SELECT * FROM user WHERE user_id = $customer_id ");
         $user = $user_qry->fetch_assoc();
         $email = $user['email'];
         $phone = $user['phone'];
@@ -31,7 +31,7 @@
         if($user){
             $fullname = $user['fname'] .' '. $user['mname'] .' '. $user['lname'] .' '. $user['suffix'];
             // PHP Compose Mail
-            $name = 'Rental Properties Management System';
+            $name = 'Alma Laundry Management System';
             // $subject = htmlentities('Important Message - ' . $name);
             // $message = $body;
             // //PHP Mailer Gmail

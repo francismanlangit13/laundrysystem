@@ -8,10 +8,10 @@
                         <div class="sb-nav-link-icon text-dark"><i class="fas fa-tachometer-alt"></i></div>
                         Dashboard
                     </a>
-                    <a class="nav-link  text-dark <?php if (strpos($_SERVER['PHP_SELF'], 'home/notification.php') !== false)  { echo 'active'; } ?>" href="notification">
+                    <!-- <a class="nav-link  text-dark <?php if (strpos($_SERVER['PHP_SELF'], 'home/notification.php') !== false)  { echo 'active'; } ?>" href="notification">
                         <div class="sb-nav-link-icon text-dark"><i class="fas fa-bell"></i></div>
                         Notification
-                    </a>
+                    </a> -->
                     <a class="nav-link text-dark <?php if (strpos($_SERVER['PHP_SELF'], 'home/user.php') !== false || strpos($_SERVER['PHP_SELF'], 'home/user_add.php') !== false || strpos($_SERVER['PHP_SELF'], 'home/user_edit.php') !== false || strpos($_SERVER['PHP_SELF'], 'home/user_view.php') !== false || strpos($_SERVER['PHP_SELF'], 'home/customer.php') !== false || strpos($_SERVER['PHP_SELF'], 'home/customer_add.php') !== false || strpos($_SERVER['PHP_SELF'], 'home/customer_edit.php') !== false || strpos($_SERVER['PHP_SELF'], 'home/customer_view.php') !== false)  {  } else{ echo'collapsed'; } ?>" href="#" data-bs-toggle="collapse" data-bs-target="#collapseAccounts" aria-expanded="false" aria-controls="collapseAccounts">
                         <div class="sb-nav-link-icon text-dark"><i class="fas fa-users"></i></div>
                         Accounts

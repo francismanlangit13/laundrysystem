@@ -31,12 +31,12 @@
                             <!-- Select2 Example -->
                             <div class="col-md-5 mb-3">
                                 <?php
-                                    $staff = "SELECT user_id, CONCAT(fname, ' ', mname, ' ', lname, ' ', suffix) AS fullname FROM `user` WHERE `type` = 'Renter' AND `status` != 'Inactive'";
+                                    $staff = "SELECT user_id, CONCAT(fname, ' ', mname, ' ', lname, ' ', suffix) AS fullname FROM `user` WHERE `user_type` = 'Customer' AND `user_status` != 'Inactive'";
                                     $staff_result = $con->query($staff);
                                 ?>
-                                <label for="renter" class="required">Rented By</label>
-                                <select class="form-control select3" id="renter" name="renter" style="width: 100%;" required>
-                                    <option value="">Select Rented By</option>
+                                <label for="customer" class="required">Customer</label>
+                                <select class="form-control select3" id="customer" name="customer" style="width: 100%;" required>
+                                    <option value="">Select Customer</option>
                                     <option value=" ">None</option>
                                     <?php 
                                         if ($staff_result->num_rows > 0) {
@@ -45,7 +45,7 @@
                                     <option value="<?=$staffrow['user_id'];?>"><?=$staffrow['fullname'];?></option>
                                     <?php } } ?>
                                 </select>
-                                <div id="renter-error"></div>
+                                <div id="customer-error"></div>
                             </div>
                             <!-- Initialize Select2 -->
                             <script>
@@ -87,7 +87,7 @@
         </form>
     </div>
 </main>
-<script>
+<!-- <script>
     $(document).ready(function() {
         // Add an event listener to the modal's submit button
         $(document).on('click', '#sendButton', function() {
@@ -118,40 +118,40 @@
     $(document).ready(function() {
 
         // debounce functions for each input field
-        var debouncedCheckRenter = _.debounce(checkRenter, 500);
+        var debouncedCheckCustomer = _.debounce(checkCustomer, 500);
         var debouncedCheckBody = _.debounce(checkBody, 500);
 
         // attach event listeners for each input field
-        $('#renter').on('change', debouncedCheckRenter);
+        $('#customer').on('change', debouncedCheckCustomer);
         $('#body').on('input', debouncedCheckBody);
 
-        $('#renter').on('blur', debouncedCheckRenter);
+        $('#customer').on('blur', debouncedCheckCustomer);
         $('#body').on('blur', debouncedCheckBody);
 
         function checkIfAllFieldsValid() {
             // check if all input fields are valid and enable submit button if so
-            if ( $('#renter-error').is(':empty') && $('#body-error').is(':empty') ) {
+            if ( $('#customer-error').is(':empty') && $('#body-error').is(':empty') ) {
                 $('#submit-btn').prop('disabled', false);
             } else {
                 $('#submit-btn').prop('disabled', true);
             }
         }
 
-        function checkRenter() {
-            var renter = $('#renter').val()
+        function checkCustomer() {
+            var customer = $('#customer').val()
             
-            // show error if renter is empty
-            if (!renter || renter.trim() === '') {
-                $('#renter-error').text('Please select rentee').css('color', 'red');
-                $('#renter').addClass('is-invalid');
+            // show error if customer is empty
+            if (!customer || customer.trim() === '') {
+                $('#customer-error').text('Please select rentee').css('color', 'red');
+                $('#customer').addClass('is-invalid');
                 checkIfAllFieldsValid();
                 return;
             }
             
-            // Perform additional validation for renter if needed
+            // Perform additional validation for customer if needed
             
-            $('#renter-error').empty();
-            $('#renter').removeClass('is-invalid');
+            $('#customer-error').empty();
+            $('#customer').removeClass('is-invalid');
             checkIfAllFieldsValid();
         }
 
@@ -173,5 +173,5 @@
             checkIfAllFieldsValid();
         }
     });
-</script>
+</script> -->
 <?php include ('../includes/bottom.php'); ?>
